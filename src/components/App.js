@@ -3,17 +3,17 @@ import Header from "./Header";
 import logo from "../media/logo.jpg";
 import MainMenu from "./MainMenu";
 import Video from "./Video";
+import Instagram from "./Instagram";
+import Footer from "./Footer";
+import { SocialIcon } from "react-social-icons";
+
 import food from "../media/food.png";
 import drinks from "../media/drinks.png";
 import map from "../media/map.png";
-import InstagramGallery from "./InstagramGallery";
 
 import styled from "styled-components";
 
 function App() {
-  const INSTAGRAM_ID = "3468531814";
-  const THUMBNAIL_WIDTH = 640;
-  const PHOTO_COUNT = 60;
   const [windowView, setWindowView] = useState("home");
 
   const changeView = str => {
@@ -33,11 +33,16 @@ function App() {
         <Img src={food} alt="food" showIt={windowView === "food"} />
         <Img src={map} alt="map" showIt={windowView === "map"} />
       </MainWindow>
-      <div><InstagramGallery
-    userId={INSTAGRAM_ID}
-    thumbnailWidth={THUMBNAIL_WIDTH}
-    photoCount={PHOTO_COUNT}
-  /></div>
+      <Instagram />
+      <SocialDiv>
+        <Span>
+          <SocialIcon url="https://www.facebook.com/" />
+        </Span>
+        <Span>
+          <SocialIcon url="https://www.instagram.com/" />
+        </Span>
+      </SocialDiv>
+      <Footer />
     </AppContainer>
   );
 }
@@ -65,6 +70,17 @@ const Logo = styled.img`
 const MainWindow = styled.div`
   text-align: center;
   justify-content: center;
+`;
+
+const SocialDiv = styled.div`
+  text-align: center;
+  justify-content: center;
+  height: 7rem;
+  padding-top: 2rem;
+`;
+
+const Span = styled.span`
+margin: 1em;
 `;
 
 const Img = styled.img`

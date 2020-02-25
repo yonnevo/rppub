@@ -3,6 +3,13 @@ import styled from "styled-components";
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 
 function Header() {
+  const openFace = () => {
+    window.open("http://www.facebook.com");
+  };
+  const openInsta = () => {
+    window.open("https://www.instagram.com/");
+  };
+
   return (
     <div>
       <Container>
@@ -13,10 +20,10 @@ function Header() {
         <Section></Section>
         <SocialSection>
           <Socialbox>
-            <FaInstagram />
+            <FaInstagram onClick={()=>{openInsta()}}/>
           </Socialbox>
           <Socialbox>
-            <FaFacebookSquare />
+            <FaFacebookSquare onClick={()=>{openFace()}}/>
           </Socialbox>
         </SocialSection>
       </Container>
@@ -48,7 +55,7 @@ const Numbox = styled.span`
   /* border: solid 1px red; */
   padding-right: 0.25rem;
   :hover {
-    color: #ADD8E6;
+    color: #add8e6;
   }
 `;
 const Socialbox = styled.span`
@@ -56,6 +63,6 @@ const Socialbox = styled.span`
   font-size: 2.7rem;
   padding-left: 0.25rem;
   :hover {
-    color: #ADD8E6;
+    color: #add8e6;
   }
 `;

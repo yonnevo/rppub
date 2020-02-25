@@ -7,16 +7,16 @@ function MainMenu(props) {
     <div>
       <Container>
         <Section>
-          <Text onClick={()=>changeView('map')}>מפת הגעה</Text>
+          <Text onClick={() => changeView("map") }>מפת הגעה</Text>
         </Section>
         <Section>
-          <Text onClick={()=>changeView('drinks')}>בירה ודרינקים</Text>
+          <Text onClick={() => changeView("drinks")}>בירה ודרינקים</Text>
         </Section>
         <Section>
-          <Text onClick={()=>changeView('food')}>אוכל</Text>
+          <Text onClick={() => changeView("food")}>אוכל</Text>
         </Section>
         <Section>
-          <Text onClick={()=>changeView('home')}>בית</Text>
+          <Text onClick={() => changeView("home")}>בית</Text>
         </Section>
       </Container>
     </div>
@@ -43,6 +43,7 @@ const Section = styled.div`
 `;
 
 const Text = styled.p`
+  font-weight: bolder;
   margin: auto;
   width: 6rem;
   :hover {
