@@ -38,6 +38,7 @@ const Container = styled.div`
   @media (max-width: 1024px) {
     flex-direction: column-reverse;
     height: 80px;
+    margin-bottom: 1rem;
   }
 `;
 
