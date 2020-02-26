@@ -2,21 +2,21 @@ import React from "react";
 import styled from "styled-components";
 
 function MainMenu(props) {
-  const { changeView } = props;
+  const { changeView, windowView } = props;
   return (
     <div>
       <Container>
         <Section>
-          <Text onClick={() => changeView("map") }>מפת הגעה</Text>
+          <Text onClick={() => changeView("map")} underline={windowView === 'map'}>מפת הגעה</Text>
         </Section>
         <Section>
-          <Text onClick={() => changeView("drinks")}>בירה ודרינקים</Text>
+          <Text onClick={() => changeView("drinks")} underline={windowView === 'drinks'}>בירה ודרינקים</Text>
         </Section>
         <Section>
-          <Text onClick={() => changeView("food")}>אוכל</Text>
+          <Text onClick={() => changeView("food")} underline={windowView === 'food'}>אוכל</Text>
         </Section>
         <Section>
-          <Text onClick={() => changeView("home")}>בית</Text>
+          <Text onClick={() => changeView("home")} underline={windowView === 'home'}>בית</Text>
         </Section>
       </Container>
     </div>
@@ -35,6 +35,10 @@ const Container = styled.div`
   height: 3rem;
   justify-content: center;
   align-items: center;
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    height: 80px;
+  }
 `;
 
 const Section = styled.div`
@@ -46,7 +50,16 @@ const Text = styled.p`
   font-weight: bolder;
   margin: auto;
   width: 6rem;
+  border-bottom: ${props => (props.underline ? `2px red solid` : `none`)};
   :hover {
-    border-bottom: 1px solid red;
+    animation: borderline 1s both;
+    @keyframes borderline {
+      0% {
+        border-bottom: none;
+      }
+      100% {
+        border-bottom: 2px red solid;
+      }
+    }
   }
 `;

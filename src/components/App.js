@@ -26,7 +26,7 @@ function App() {
       <ImgBox>
         <Logo src={logo} alt="logo" onClick={() => setWindowView("home")} />
       </ImgBox>
-      <MainMenu changeView={changeView} />
+      <MainMenu changeView={changeView} windowView={windowView} />
       <MainWindow>
         <Video showIt={windowView === "home"} />
         <Img src={drinks} alt="drinks" showIt={windowView === "drinks"} />
@@ -36,10 +36,10 @@ function App() {
       <Instagram />
       <SocialDiv>
         <Span>
-          <SocialIcon url="https://www.facebook.com/" />
+          <SocialIcon url="https://www.facebook.com/RPINAPUB/"/>
         </Span>
         <Span>
-          <SocialIcon url="https://www.instagram.com/" />
+          <SocialIcon url="https://www.instagram.com/roshpina.pub/" />
         </Span>
       </SocialDiv>
       <Footer />
@@ -50,6 +50,7 @@ function App() {
 export default App;
 
 const AppContainer = styled.div`
+  width: 100%;
   background-color: white;
 `;
 
@@ -57,13 +58,28 @@ const ImgBox = styled.div`
   width: 100%;
   height: 24rem;
   text-align: center;
+  @media (max-width: 1024px) {
+    height: 13rem;
+    line-height: 1.5rem;
+  }
 `;
 
 const Logo = styled.img`
   padding-top: 3rem;
   height: 20rem;
   :hover {
-    height: 21rem;
+    animation: local-name 1s both;
+    @keyframes local-name {
+      0% {
+        height: 20rem;
+      }
+      100% {
+        height: 21rem;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    height: 10rem;
   }
 `;
 
@@ -80,10 +96,13 @@ const SocialDiv = styled.div`
 `;
 
 const Span = styled.span`
-margin: 1em;
+  margin: 1em;
 `;
 
 const Img = styled.img`
   display: ${props => (props.showIt ? `inline` : `none`)};
   width: 824.886px;
+  @media (max-width: 1024px) {
+    max-width: 260px;
+  }
 `;

@@ -10,6 +10,10 @@ import img8 from "../media/social/photo18.png";
 
 import styled from "styled-components";
 
+const openInsta = () => {
+  window.location.assign("https://www.instagram.com/roshpina.pub/");
+};
+
 function Instagram() {
   const gallery = [img1, img2, img3, img4, img5, img6, img7, img8];
   return (
@@ -20,7 +24,9 @@ function Instagram() {
         </Text>
       </TextContainer>
       {gallery.map((x, i) => (
-        <Img src={x} key={i} alt="instagram" />
+        <Img src={x} key={i} alt="instagram" onClick={() => {
+                openInsta();
+              }}/>
       ))}
     </Container>
   );
@@ -41,10 +47,15 @@ const TextContainer = styled.div`
 const Text = styled.p`
   font-size: 2rem;
   padding-right: 2.7rem;
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+    margin: auto;
+    padding-left: 2rem;
+  }
 `;
 
 const Span = styled.span`
- color: red;
+  color: red;
 `;
 
 const Img = styled.img`

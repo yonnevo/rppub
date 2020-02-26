@@ -12,7 +12,6 @@ function Footer() {
         </Section>
         <Section></Section>
         <Section>
-          {" "}
           <Section>
             <P>שעות פתיחה</P>
             <P>ראשון עד רביעי 19:45 - 20:00</P>
@@ -43,5 +42,5 @@ const Section = styled.div`
 
 const P = styled.p`
 padding-right: 0.8rem;
-height: 0.5rem;
+line-height: 1.8rem;
 `;

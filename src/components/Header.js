@@ -4,10 +4,10 @@ import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 
 function Header() {
   const openFace = () => {
-    window.open("http://www.facebook.com");
+    window.location.assign("https://www.facebook.com/RPINAPUB/");
   };
   const openInsta = () => {
-    window.open("https://www.instagram.com/");
+    window.location.assign("https://www.instagram.com/roshpina.pub/");
   };
 
   return (
@@ -20,10 +20,18 @@ function Header() {
         <Section></Section>
         <SocialSection>
           <Socialbox>
-            <FaInstagram onClick={()=>{openInsta()}}/>
+            <FaInstagram
+              onClick={() => {
+                openInsta();
+              }}
+            />
           </Socialbox>
           <Socialbox>
-            <FaFacebookSquare onClick={()=>{openFace()}}/>
+            <FaFacebookSquare
+              onClick={() => {
+                openFace();
+              }}
+            />
           </Socialbox>
         </SocialSection>
       </Container>
@@ -55,7 +63,15 @@ const Numbox = styled.span`
   /* border: solid 1px red; */
   padding-right: 0.25rem;
   :hover {
-    color: #add8e6;
+    animation: changeColor 1s both;
+    @keyframes changeColor {
+      0% {
+        color: white;
+      }
+      100% {
+        color: #add8e6;
+      }
+    }
   }
 `;
 const Socialbox = styled.span`
@@ -63,6 +79,13 @@ const Socialbox = styled.span`
   font-size: 2.7rem;
   padding-left: 0.25rem;
   :hover {
-    color: #add8e6;
+    animation: changeColor 1s both;
+    @keyframes changeColor {
+      0% {
+        color: white;      }
+      100% {
+        color: #add8e6;
+      }
+    }
   }
 `;
