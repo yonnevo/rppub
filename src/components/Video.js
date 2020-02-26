@@ -7,7 +7,7 @@ function Video(props) {
 
   return (
     <Container showIt={showIt}>
-      <Film id="background-video" loop autoPlay  muted={true}>
+      <Film id="background-video" loop autoPlay  muted={true} playsinline>
         <source src={beer_video} type="video/mp4" />
         Your browser does not support the video tag.
       </Film>
