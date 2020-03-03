@@ -31,6 +31,7 @@ const Container = styled.div`
   height: 10rem;
   background-color: black;
   color: white;
+  margin-bottom: 1rem;
 `;
 
 const Section = styled.div`

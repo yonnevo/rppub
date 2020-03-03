@@ -107,7 +107,8 @@ $w: #fff;
     position: relative;
     top: -3vh;
     @media (max-width: 1024px) {
-      right: 32vw;
+      right: 27vw;
+      font-size: 9.5rem;
     }
     @include flicker(4s);
     z-index: 1;

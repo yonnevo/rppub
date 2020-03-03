@@ -68,4 +68,5 @@ const Img = styled.img`
   width: 29vw;
   height: 29vw;
   padding: 0.5rem;
+  object-fit: cover;
 `;
