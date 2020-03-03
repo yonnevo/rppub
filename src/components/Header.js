@@ -53,6 +53,7 @@ const Container = styled.header`
 const Section = styled.div`
   flex-grow: 1;
   text-align: center;
+  font-family: "Suez One";
 `;
 const SocialSection = styled.div`
   flex-grow: 1;

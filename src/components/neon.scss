@@ -1,0 +1,420 @@
+$r: #ff3300;
+$y: #ffc635;
+$t: transparent;
+$b: #00b4de;
+$w: #fff;
+
+@font-face {
+  font-family: "Draft Beer";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/383755/lasenter.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin flicker($freq) {
+  animation: flicker $freq linear infinite;
+  @keyframes flicker {
+    0% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+    }
+    61% {
+      opacity: 0.75;
+    }
+    62% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 1;
+    }
+    76% {
+      opacity: 0.5;
+    }
+    78% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin stroke($width, $color) {
+  $shadow: ();
+  @for $i from -$width through $width {
+    $shadow: append($shadow, #{$width}px #{$i}px $color, comma);
+    $shadow: append($shadow, #{-$width}px #{$i}px $color, comma);
+    $shadow: append($shadow, #{$i}px #{$width}px $color, comma);
+    $shadow: append($shadow, #{$i}px #{-$width}px $color, comma);
+  }
+  text-shadow: $shadow;
+}
+
+.container {
+  background: url("https://puu.sh/yudGS/b9770962cf.jpg");
+  width: 60%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: auto;
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+  .wrap {
+    width: 400px;
+    height: 300px;
+    position: relative;
+    top: 40px;
+    left: 30px;
+  }
+  h2 {
+    position: absolute;
+    color: $b;
+    left: 50%;
+    font-size: 60px;
+    font-family: "Varela Round";
+    text-transform: uppercase;
+    transform: translateX(-50%);
+    top: -30px;
+    letter-spacing: 10px;
+    @media (max-width: 1024px) {
+      display: none;
+    }
+    filter: blur(1px);
+    @include flicker(0.25s);
+    &:before {
+      content: "COLD";
+      position: absolute;
+      left: 0;
+      top: 0;
+      filter: blur(20px);
+    }
+  }
+  h1 {
+    display: inline-block;
+    color: $r;
+    font-family: "Draft Beer";
+    font-size: 180px;
+    margin: 0.25em 0;
+    transform: rotate(-15deg) skew(-15deg);
+    position: relative;
+    @media (max-width: 1024px) {
+      left: -14vw;
+    }
+    @include flicker(4s);
+    z-index: 1;
+    &:before,
+    &:after {
+      content: "Beer";
+      position: absolute;
+      filter: blur(5px);
+      z-index: -1;
+      left: 0;
+      top: 0;
+    }
+    &:after {
+      @include stroke(20, $r);
+      filter: blur(25px);
+      opacity: 0.5;
+      color: $r;
+      z-index: 2;
+    }
+  }
+  .beer {
+    width: 120px;
+    height: 165px;
+    border-left: 10px solid $y;
+    position: absolute;
+    top: 25px;
+    left: -35px;
+    @media (max-width: 1024px) {
+      left: 26vw;
+    }
+    transform: rotate(-20deg);
+    filter: blur(1px);
+    @include flicker(0.15s);
+    &:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      border-left: 10px solid $y;
+      top: 0;
+      left: -10px;
+      filter: blur(25px);
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: $y;
+      top: -5px;
+      left: -10px;
+      border-radius: 100%;
+      box-shadow: 0 165px 0 0 $y;
+    }
+    .foam {
+      position: absolute;
+      width: 120%;
+      height: 30px;
+      border: 10px solid $w;
+      border-color: $w $w $t $w;
+      left: -35px;
+      top: -50px;
+      border-radius: 200px / 200px;
+      .drip {
+        &:last-of-type {
+          position: absolute;
+          width: 10px;
+          height: 50px;
+          left: -10px;
+          top: 22px;
+          border: 10px solid $w;
+          border-color: $t $w $w $w;
+          border-radius: 0 0 50px 50px;
+          transform: rotate(15deg);
+          z-index: 2;
+          animation: dripping 1s steps(2, end) infinite alternate;
+          @keyframes dripping {
+            0% {
+              height: 30px;
+              left: -7.5px;
+            }
+            100% {
+              height: 80px;
+              left: -13px;
+            }
+          }
+          &:before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background: $w;
+            right: -10px;
+            top: -5px;
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 100%;
+            left: -10px;
+            top: -5px;
+            border: 10px solid $w;
+            border-color: $t $w $w $w;
+            border-radius: 0 0 50px 50px;
+            z-index: 2;
+            filter: blur(20px);
+          }
+        }
+        &:first-of-type {
+          width: 80%;
+          height: 9px;
+          background: $w;
+          position: absolute;
+          bottom: -5px;
+          right: 2px;
+          &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: $w;
+            left: 0;
+            top: 0;
+            filter: blur(25px);
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: $w;
+            border-radius: 100%;
+            left: -5px;
+            box-shadow: 115px -1px 0 $w;
+          }
+        }
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 30px;
+        border: 5px solid $w;
+        border-color: $w $w $t $w;
+        box-shadow: inset 5px 0 $w, inset -5px 0 $w, inset 0 5px $w;
+        left: -5px;
+        top: -5px;
+        border-radius: 10px;
+        filter: blur(20px);
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: $w;
+        border-radius: 100%;
+        top: 25px;
+        left: -2.5px;
+      }
+    }
+    .inner {
+      position: absolute;
+      right: 0;
+      top: 5px;
+      border-right: 10px solid $y;
+      height: 50%;
+      transform: rotate(5deg);
+      &:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        border-left: 10px solid $y;
+        top: 0;
+        left: -10px;
+        filter: blur(25px);
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: $y;
+        top: -5px;
+        left: 0px;
+        border-radius: 100%;
+        box-shadow: 0 85px 0 0 $y;
+      }
+    }
+  }
+  .wheat {
+    position: absolute;
+    width: 120px;
+    height: 150px;
+    border-radius: 0 0 100% 0;
+    border: 10px solid $y;
+    border-color: $t $y $y $t;
+    top: 55px;
+    right: 0px;
+    transform: rotate(10deg);
+    opacity: 0.75;
+    @media (max-width: 1024px) {
+      display: none;
+    }
+    filter: blur(1px);
+    @include flicker(1s);
+    animation-delay: -0.25s;
+    animation-direction: reverse;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 0 0 100% 0;
+      border: 10px solid $y;
+      border-color: $t $y $y $t;
+      top: -5px;
+      left: -10px;
+      filter: blur(25px);
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: $y;
+      border-radius: 100%;
+      left: 120px;
+      top: -15px;
+      box-shadow: -135px 165px 0 $y;
+    }
+    .inner {
+      position: absolute;
+      left: 95px;
+      top: -15px;
+      width: 20px;
+      height: 110px;
+      background: linear-gradient(
+        45deg,
+        $t,
+        $t 8px,
+        $y 10px,
+        $y 18px,
+        $t 19px,
+        $t 23px,
+        $y 25px,
+        $y 34px,
+        $t 35px,
+        $t 38px,
+        $y 40px,
+        $y 48px,
+        $t 50px,
+        $t 53px,
+        $y 55px,
+        $y 63px,
+        $t 65px,
+        $t 68px,
+        $y 70px,
+        $y 78px,
+        $t 80px
+      );
+      transform: rotate(15deg);
+      filter: blur(1px);
+      &:before {
+        content: "";
+        position: absolute;
+        left: 17px;
+        top: 0px;
+        width: 20px;
+        height: 110px;
+        background: linear-gradient(
+          45deg,
+          $t,
+          $t 8px,
+          $y 10px,
+          $y 18px,
+          $t 19px,
+          $t 23px,
+          $y 25px,
+          $y 34px,
+          $t 35px,
+          $t 38px,
+          $y 40px,
+          $y 48px,
+          $t 50px,
+          $t 53px,
+          $y 55px,
+          $y 63px,
+          $t 65px,
+          $t 68px,
+          $y 70px,
+          $y 78px,
+          $t 80px
+        );
+        transform: scaleX(-1) rotate(-5deg);
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 11px;
+        background: $y;
+        left: -5px;
+        top: 2px;
+        border-radius: 50px;
+        box-shadow: 0 20px 0 $y, 0 41px 0 $y, 0 63px 0 $y, 0 84px 0 $y,
+          38px 20px 0 $y, 39px 0px 0 $y, 37px 42px 0 $y, 35px 62px 0 $y,
+          33px 83px 0 $y;
+      }
+    }
+  }
+}

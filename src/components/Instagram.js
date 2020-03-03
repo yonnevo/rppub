@@ -24,9 +24,14 @@ function Instagram() {
         </Text>
       </TextContainer>
       {gallery.map((x, i) => (
-        <Img src={x} key={i} alt="instagram" onClick={() => {
-                openInsta();
-              }}/>
+        <Img
+          src={x}
+          key={i}
+          alt="instagram"
+          onClick={() => {
+            openInsta();
+          }}
+        />
       ))}
     </Container>
   );
@@ -55,11 +60,12 @@ const Text = styled.p`
 `;
 
 const Span = styled.span`
+  font-family: "Suez One";
   color: red;
 `;
 
 const Img = styled.img`
-  width: 22vw;
-  height: 20vw;
+  width: 29vw;
+  height: 29vw;
   padding: 0.5rem;
 `;

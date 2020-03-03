@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import logo from "../media/logo.jpg";
 import MainMenu from "./MainMenu";
-import Video from "./Video";
+import Home from "./Home";
 import Instagram from "./Instagram";
 import Footer from "./Footer";
 import { SocialIcon } from "react-social-icons";
@@ -28,7 +28,7 @@ function App() {
       </ImgBox>
       <MainMenu changeView={changeView} windowView={windowView} />
       <MainWindow>
-        <Video showIt={windowView === "home"} />
+        <Home showIt={windowView === "home"}/>
         <Img src={drinks} alt="drinks" showIt={windowView === "drinks"} />
         <Img src={food} alt="food" showIt={windowView === "food"} />
         <Img src={map} alt="map" showIt={windowView === "map"} />
@@ -36,7 +36,7 @@ function App() {
       <Instagram />
       <SocialDiv>
         <Span>
-          <SocialIcon url="https://www.facebook.com/RPINAPUB/"/>
+          <SocialIcon url="https://www.facebook.com/RPINAPUB/" />
         </Span>
         <Span>
           <SocialIcon url="https://www.instagram.com/roshpina.pub/" />
@@ -67,17 +67,6 @@ const ImgBox = styled.div`
 const Logo = styled.img`
   padding-top: 3rem;
   height: 20rem;
-  :hover {
-    animation: local-name 1s both;
-    @keyframes local-name {
-      0% {
-        height: 20rem;
-      }
-      100% {
-        height: 21rem;
-      }
-    }
-  }
   @media (max-width: 1024px) {
     height: 10rem;
   }

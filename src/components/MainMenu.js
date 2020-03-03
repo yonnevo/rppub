@@ -48,7 +48,7 @@ const Section = styled.div`
 `;
 
 const Text = styled.p`
-  font-weight: bolder;
+  font-family: "Suez One";
   margin: auto;
   width: 6rem;
   border-bottom: ${props => (props.underline ? `2px red solid` : `none`)};

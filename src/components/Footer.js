@@ -14,9 +14,9 @@ function Footer() {
         <Section>
           <Section>
             <P>שעות פתיחה</P>
-            <P>ראשון עד רביעי 19:45 - 20:00</P>
-            <P>חמישי ושישי    19:45 - 20:00</P>
-            <P>שבת             19:45 - 20:00</P>
+            <P>ראשון עד רביעי 19:45 - 02:30</P>
+            <P>חמישי ושישי 19:45 - 03:30</P>
+            <P>שבת 19:45 - 02:30</P>
           </Section>
         </Section>
       </Container>
@@ -41,6 +41,7 @@ const Section = styled.div`
 `;
 
 const P = styled.p`
-padding-right: 0.8rem;
-line-height: 1.8rem;
+  font-family: "Suez One";
+  padding-right: 0.8rem;
+  line-height: 1.8rem;
 `;
