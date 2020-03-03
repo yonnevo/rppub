@@ -15,10 +15,15 @@ import styled from "styled-components";
 
 function App() {
   const [windowView, setWindowView] = useState("home");
+  const [clicked, setClicked] = useState(false);
 
   const changeView = str => {
     setWindowView(str);
+    if(str==='home' && clicked === true){
+      setClicked(false)
+    }
   };
+
 
   return (
     <AppContainer>
@@ -29,9 +34,9 @@ function App() {
       <MainMenu changeView={changeView} windowView={windowView} />
       <MainWindow>
         <Home showIt={windowView === "home"}/>
-        <Img src={drinks} alt="drinks" showIt={windowView === "drinks"} />
-        <Img src={food} alt="food" showIt={windowView === "food"} />
-        <Img src={map} alt="map" showIt={windowView === "map"} />
+        <Img src={drinks} alt="drinks" showIt={windowView === "drinks"} enlargeIt={clicked} onClick={()=> setClicked(!clicked)}/>
+        <Img src={food} alt="food" showIt={windowView === "food"} enlargeIt={clicked} onClick={()=> setClicked(!clicked)} />
+        <Img src={map} alt="map" showIt={windowView === "map"}  enlargeIt={clicked} onClick={()=> setClicked(!clicked)}/>
       </MainWindow>
       <Instagram />
       <SocialDiv>
@@ -90,8 +95,8 @@ const Span = styled.span`
 
 const Img = styled.img`
   display: ${props => (props.showIt ? `inline` : `none`)};
-  width: 824.886px;
+  width: ${props => (props.enlargeIt ? `100vw` : `824.886px`)}; 
   @media (max-width: 1024px) {
-    max-width: 260px;
+    max-width: ${props => (props.enlargeIt ? `100vw` : `260px`)}; ;
   }
 `;
