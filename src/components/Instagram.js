@@ -47,6 +47,9 @@ const TextContainer = styled.div`
   padding-top: 5rem;
   display: flex;
   justify-content: flex-end;
+  @media (max-width: 1024px) {
+    padding-top: 2rem;
+  }
 `;
 
 const Text = styled.p`

@@ -25,8 +25,8 @@ const Container = styled.div`
 `;
 
 const Img = styled.img`
-  width: 60%;
+  width: 60vw;
   @media (max-width: 1024px) {
-    width: 100%;
+    width: 100vw;
   }
 `;
