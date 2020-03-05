@@ -27,7 +27,7 @@ function Instagram() {
         <Img
           src={x}
           key={i}
-          alt="instagram"
+          alt="instagram photo"
           onClick={() => {
             openInsta();
           }}
