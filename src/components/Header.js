@@ -15,7 +15,7 @@ function Header() {
       <Container>
         <Section>
           חייגו עכשיו:
-          <Numbox>03-642-7062 </Numbox>
+          <NumBox href="tel:+972 3-642-7062">03-6427062</NumBox>
         </Section>
         <Section></Section>
         <SocialSection>
@@ -24,6 +24,7 @@ function Header() {
               onClick={() => {
                 openInsta();
               }}
+              style={{ cursor: "pointer" }}
             />
           </Socialbox>
           <Socialbox>
@@ -31,6 +32,7 @@ function Header() {
               onClick={() => {
                 openFace();
               }}
+              style={{ cursor: "pointer" }}
             />
           </Socialbox>
         </SocialSection>
@@ -60,9 +62,11 @@ const SocialSection = styled.div`
   text-align: center;
   padding-top: 0.5rem;
 `;
-const Numbox = styled.span`
+const NumBox = styled.a`
   /* border: solid 1px red; */
   padding-right: 0.25rem;
+  text-decoration: none;
+  color: white;
   :hover {
     animation: changeColor 1s both;
     @keyframes changeColor {
@@ -83,7 +87,8 @@ const Socialbox = styled.span`
     animation: changeColor 1s both;
     @keyframes changeColor {
       0% {
-        color: white;      }
+        color: white;
+      }
       100% {
         color: #add8e6;
       }

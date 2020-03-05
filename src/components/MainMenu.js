@@ -28,11 +28,10 @@ export default MainMenu;
 const Container = styled.div`
   width: 60%;
   height: 50px;
-  margin: 2rem auto;
+  margin: 1rem auto;
   display: flex;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-  height: 3rem;
   justify-content: center;
   align-items: center;
   @media (max-width: 1024px) {
@@ -51,16 +50,10 @@ const Text = styled.p`
   font-family: "Suez One";
   margin: auto;
   width: 6rem;
-  border-bottom: ${props => (props.underline ? `2px red solid` : `none`)};
+  cursor: pointer;
+  border-bottom: ${props => (props.underline ? `2px red solid` : `2px transparent solid`)};
   :hover {
-    animation: borderline 1s both;
-    @keyframes borderline {
-      0% {
-        border-bottom: none;
+        color: red	;
       }
-      100% {
-        border-bottom: 2px red solid;
-      }
-    }
   }
 `;

@@ -69,4 +69,5 @@ const Img = styled.img`
   height: 29vw;
   padding: 0.5rem;
   object-fit: cover;
+  cursor: pointer;
 `;

@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import logo from "../media/logo.jpg";
 import MainMenu from "./MainMenu";
-import Home from "./Home";
+import MainViewWindow from "./MainViewWindow";
 import Instagram from "./Instagram";
 import Footer from "./Footer";
 import { SocialIcon } from "react-social-icons";
-
-import food from "../media/food.png";
-import drinks from "../media/drinks.png";
-import map from "../media/map.png";
 
 import styled from "styled-components";
 
@@ -17,13 +13,20 @@ function App() {
   const [windowView, setWindowView] = useState("home");
   const [clicked, setClicked] = useState(false);
 
+  useEffect(() => {
+    if (clicked) {
+      setClicked(false);
+    }
+    // eslint-disable-next-line
+  }, [windowView]);
+
   const changeView = str => {
     setWindowView(str);
-    if(str==='home' && clicked === true){
-      setClicked(false)
-    }
   };
 
+  const changeClickVal = (boolean) => {
+    setClicked(!boolean);
+  };
 
   return (
     <AppContainer>
@@ -32,12 +35,7 @@ function App() {
         <Logo src={logo} alt="logo" onClick={() => setWindowView("home")} />
       </ImgBox>
       <MainMenu changeView={changeView} windowView={windowView} />
-      <MainWindow>
-        <Home showIt={windowView === "home"}/>
-        <Img src={drinks} alt="drinks" showIt={windowView === "drinks"} enlargeIt={clicked} onClick={()=> setClicked(!clicked)}/>
-        <Img src={food} alt="food" showIt={windowView === "food"} enlargeIt={clicked} onClick={()=> setClicked(!clicked)} />
-        <Img src={map} alt="map" showIt={windowView === "map"}  enlargeIt={clicked} onClick={()=> setClicked(!clicked)}/>
-      </MainWindow>
+      <MainViewWindow clicked={clicked} windowView={windowView} changeClickVal={changeClickVal}/>
       <Instagram />
       <SocialDiv>
         <Span>
@@ -72,14 +70,49 @@ const ImgBox = styled.div`
 const Logo = styled.img`
   padding-top: 3rem;
   height: 20rem;
+  :hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+      transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+      transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+      transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+      transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+      transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+      transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+      transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+      transform: translate(1px, -2px) rotate(-1deg);
+    }
+  }
   @media (max-width: 1024px) {
     height: 10rem;
   }
-`;
-
-const MainWindow = styled.div`
-  text-align: center;
-  justify-content: center;
 `;
 
 const SocialDiv = styled.div`
@@ -91,12 +124,4 @@ const SocialDiv = styled.div`
 
 const Span = styled.span`
   margin: 1em;
-`;
-
-const Img = styled.img`
-  display: ${props => (props.showIt ? `inline` : `none`)};
-  width: ${props => (props.enlargeIt ? `100vw` : `824.886px`)}; 
-  @media (max-width: 1024px) {
-    max-width: ${props => (props.enlargeIt ? `100vw` : `260px`)}; ;
-  }
 `;
