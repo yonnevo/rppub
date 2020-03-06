@@ -28,5 +28,6 @@ const Img = styled.img`
   width: 60vw;
   @media (max-width: 1024px) {
     width: 100vw;
+    object-fit: scale-down;
   }
 `;
