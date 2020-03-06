@@ -50,7 +50,7 @@ function MainViewWindow(props) {
       <WazeBox showIt={showWindow("map")}>
         <Text showIt={showWindow("map")}>
           הקישו לניווט ב Waze
-          <Waze href="waze://?ll=32.1070993,34.7997234">
+          <Waze href="waze://?ll=32.1070993,34.7975401">
             <Icon icon={wazeIcon} />
           </Waze>
         </Text>
