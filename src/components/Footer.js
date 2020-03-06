@@ -6,12 +6,12 @@ function Footer() {
     <div>
       <Container>
         <Section>
-          <P>:כתובת</P>
+          <P>כתובת:</P>
           <P>ברודצקי 17 תל אביב</P>
           <Num href="tel:+972 3-642-7062">03-6427062</Num>
         </Section>
         <Section>
-          <P>:שעות פתיחה </P>
+          <P>שעות פתיחה: </P>
           <P>א' עד ד' 19:30 - 02:30 </P>
           <P>חמישי 19:30 - 03:30 </P>
           <P>שישי 20:15 - 03:30 </P>
@@ -41,6 +41,7 @@ const Section = styled.div`
 `;
 
 const P = styled.p`
+  direction: rtl;
   white-space: pre !important;
   font-family: "Suez One";
   padding-right: 0.8rem;

@@ -15,7 +15,7 @@ function MainViewWindow(props) {
     <Container>
       <Home showIt={windowView === "home"} />
       <Text showIt={windowView !== "home" && windowView !== "about"}>
-        {clicked ? "להקטנה" : "להגדלה"} הקש על התמונה
+        {clicked ? "להקטנה" : "להגדלה"} הקישו על התמונה
       </Text>
       <About showIt={windowView === "about"} />
       <About />

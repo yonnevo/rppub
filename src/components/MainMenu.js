@@ -54,6 +54,7 @@ function MainMenu(props) {
 export default MainMenu;
 
 const Container = styled.div`
+  padding: 5px;
   width: 60%;
   height: 50px;
   margin: 1rem auto;
@@ -85,5 +86,4 @@ const Text = styled.p`
   :hover {
         color: red	;
       }
-  }
 `;

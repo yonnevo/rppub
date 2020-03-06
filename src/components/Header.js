@@ -14,7 +14,7 @@ function Header() {
     <div>
       <Container>
         <Section>
-          חייגו עכשיו:
+          להזמנת מקומות   :
           <NumBox href="tel:+972 3-642-7062">03-6427062</NumBox>
         </Section>
         <Section></Section>
