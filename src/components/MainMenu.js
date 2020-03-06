@@ -7,16 +7,44 @@ function MainMenu(props) {
     <div>
       <Container>
         <Section>
-          <Text onClick={() => changeView("map")} underline={windowView === 'map'}>מפת הגעה</Text>
+          <Text
+            onClick={() => changeView("map")}
+            underline={windowView === "map"}
+          >
+            מפת הגעה
+          </Text>
         </Section>
         <Section>
-          <Text onClick={() => changeView("drinks")} underline={windowView === 'drinks'}>בירה ודרינקים</Text>
+          <Text
+            onClick={() => changeView("drinks")}
+            underline={windowView === "drinks"}
+          >
+            בירה ודרינקים
+          </Text>
         </Section>
         <Section>
-          <Text onClick={() => changeView("food")} underline={windowView === 'food'}>אוכל</Text>
+          <Text
+            onClick={() => changeView("food")}
+            underline={windowView === "food"}
+          >
+            אוכל
+          </Text>
         </Section>
         <Section>
-          <Text onClick={() => changeView("home")} underline={windowView === 'home'}>בית</Text>
+          <Text
+            onClick={() => changeView("about")}
+            underline={windowView === "about"}
+          >
+            מי אנחנו?
+          </Text>
+        </Section>
+        <Section>
+          <Text
+            onClick={() => changeView("home")}
+            underline={windowView === "home"}
+          >
+            בית
+          </Text>
         </Section>
       </Container>
     </div>
@@ -47,11 +75,13 @@ const Section = styled.div`
 `;
 
 const Text = styled.p`
+  direction: rtl;
   font-family: "Suez One";
   margin: auto;
   width: 6rem;
   cursor: pointer;
-  border-bottom: ${props => (props.underline ? `2px red solid` : `2px transparent solid`)};
+  border-bottom: ${props =>
+    props.underline ? `2px red solid` : `2px transparent solid`};
   :hover {
         color: red	;
       }

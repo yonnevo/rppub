@@ -1,6 +1,7 @@
 import React from "react";
 
 import Home from "./Home";
+import About from "./About";
 import food from "../media/food.png";
 import drinks from "../media/drinks.png";
 import map from "../media/map.png";
@@ -13,9 +14,11 @@ function MainViewWindow(props) {
   return (
     <Container>
       <Home showIt={windowView === "home"} />
-      <Text showIt={windowView !== "home"}>
+      <Text showIt={windowView !== "home" && windowView !== "about"}>
         {clicked ? "להקטנה" : "להגדלה"} הקש על התמונה
       </Text>
+      <About showIt={windowView === "about"} />
+      <About />
       <Img
         src={drinks}
         alt="drinks"
