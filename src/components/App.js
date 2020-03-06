@@ -24,7 +24,7 @@ function App() {
     setWindowView(str);
   };
 
-  const changeClickVal = (boolean) => {
+  const changeClickVal = boolean => {
     setClicked(!boolean);
   };
 
@@ -35,7 +35,11 @@ function App() {
         <Logo src={logo} alt="logo" onClick={() => setWindowView("home")} />
       </LogoBox>
       <MainMenu changeView={changeView} windowView={windowView} />
-      <MainViewWindow clicked={clicked} windowView={windowView} changeClickVal={changeClickVal}/>
+      <MainViewWindow
+        clicked={clicked}
+        windowView={windowView}
+        changeClickVal={changeClickVal}
+      />
       <Instagram />
       <SocialDiv>
         <Span>
