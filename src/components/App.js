@@ -31,9 +31,9 @@ function App() {
   return (
     <AppContainer>
       <Header />
-      <ImgBox>
+      <LogoBox>
         <Logo src={logo} alt="logo" onClick={() => setWindowView("home")} />
-      </ImgBox>
+      </LogoBox>
       <MainMenu changeView={changeView} windowView={windowView} />
       <MainViewWindow clicked={clicked} windowView={windowView} changeClickVal={changeClickVal}/>
       <Instagram />
@@ -57,7 +57,7 @@ const AppContainer = styled.div`
   background-color: white;
 `;
 
-const ImgBox = styled.div`
+const LogoBox = styled.div`
   width: 100%;
   height: 24rem;
   text-align: center;

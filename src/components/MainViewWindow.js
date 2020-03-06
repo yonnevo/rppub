@@ -46,6 +46,7 @@ export default MainViewWindow;
 const Container = styled.div`
   text-align: center;
   justify-content: center;
+  margin-bottom: 0.5vh;
 `;
 
 const Text = styled.div`
