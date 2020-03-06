@@ -97,5 +97,5 @@ const Waze = styled.a`
   border-radius: 50%;
   color: white;
   background-color: rgb(59, 89, 152);
-  padding: 0.5rem;
+  padding: 0.5rem 0.7rem;
 `;
